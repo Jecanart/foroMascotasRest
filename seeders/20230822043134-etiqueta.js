@@ -11,10 +11,7 @@ module.exports = {
      {
        "ID": INTEGER,
       "NOMBRE": String,
-      "Edad": INTEGER,
-      "Raza": String,
-      "Genero" : String,
-      "ID_usuario" : String,
+      "Descripcion": String,
      },
     ], {});
   },
