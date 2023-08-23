@@ -1,25 +1,30 @@
 'use strict';
 
+const { INTEGER } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
+ 
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+	    
+    await queryInterface.bulkInsert('usuario_producto', [
+     {
+       "ID_usuario": INTEGER,
+       "ID_producto": INTEGER,
+      
+     },
+    ], {});
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+
+    await queryInterface.bulkDelete('usuario_producto', null, {});
+
+   
+
+
+  },
+
+
 };
+
