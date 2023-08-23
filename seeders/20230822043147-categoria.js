@@ -7,21 +7,19 @@ module.exports = {
  
   async up (queryInterface, Sequelize) {
 	    
-    await queryInterface.bulkInsert('macota', [
+    await queryInterface.bulkInsert('categoria', [
      {
        "ID": INTEGER,
       "NOMBRE": String,
-      "Edad": INTEGER,
-      "Raza": String,
-      "Genero" : String,
-      "ID_usuario" : String,
+      "Descripcion": String,
+      "ID_articulo" : INTEGER,
      },
     ], {});
   },
 
   async down (queryInterface, Sequelize) {
 
-    await queryInterface.bulkDelete('macota', null, {});
+    await queryInterface.bulkDelete('categoria', null, {});
 
    
 
