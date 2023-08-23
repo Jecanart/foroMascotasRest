@@ -14,6 +14,7 @@ module.exports = {
       "Edad": INTEGER,
       "Raza": String,
       "Genero" : String,
+      "ID_usuario" : String,
      },
     ], {});
   },
