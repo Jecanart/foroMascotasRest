@@ -26,7 +26,7 @@ router.get('/findByIdU/:Usuario_idUsuario/json',function(req, res,next){
   
   let idU = req.params.Usuario_idUsuario;
 
-  macota.findByPk(Usuario_idUsuario)
+  macota.findByPk(idU)
   .then(instancia => {if(instancia){
     res.status(200).json(instancia);
   }else{
