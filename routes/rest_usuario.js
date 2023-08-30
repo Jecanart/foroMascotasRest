@@ -4,10 +4,10 @@ var router = express.Router();
 const usuario = require('../models').usuario;
 router.get('/findAll/json', function(req,res,next){
 
-const {rol} = req.user;
-if (rol !== 'admin'){
-  return res.sendStatus(403)
-}
+//const {rol} = req.user;
+//if (rol !== 'admin'){
+//  return res.sendStatus(403)
+//}
 
 usuario.findAll({
   attributes: { exclude: ["updateAt", "createdAt"]},
