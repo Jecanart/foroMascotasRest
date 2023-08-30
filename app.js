@@ -13,6 +13,7 @@ dotenv.config();
 var usersRouter = require('./routes/users');
 
 var usuarioRouter = require('./routes/rest_usuario');
+var macotaRouter = require('./routes/rest_macota');
 
 var cors = require('cors');
 
@@ -43,7 +44,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.use('/rest/usuario', authenticateJWT, usuarioRouter);
+app.use('/rest/macota',macotaRouter);
+
+app.use('/rest/usuario', usuarioRouter);
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
