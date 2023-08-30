@@ -4,19 +4,30 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
+
 var usersRouter = require('./routes/users');
 
 var usuarioRouter = require('./routes/rest_usuario');
+
+var cors = require('cors');
+
+var indexRouter = require('./routes/index');
+
+var authenticateJWT = require('./middleware/auth');
 
 const swaggerUi = require('swagger-ui-express')
 
 const swaggerFile = require('./swagger_output.json')
 
 
-const app = express();
+var app = express();
 
-
+app.use(cors());
 
 
 // view engine setup
@@ -32,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.use('/rest/usuario',usuarioRouter);
+app.use('/rest/usuario', authenticateJWT, usuarioRouter);
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
