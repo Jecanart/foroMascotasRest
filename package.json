@@ -7,6 +7,8 @@
 
 
     "start": "npm run packages:install && npm run db:reset && node ./bin/www",
+    "db:reset": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+
     "swagger-autogen": "node swagger.js"
   },
   "dependencies": {
