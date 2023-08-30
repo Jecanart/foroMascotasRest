@@ -46,7 +46,8 @@ app.use('/users', usersRouter);
 
 app.use('/rest/macota',macotaRouter);
 
-app.use('/rest/usuario', authenticateJWT, usuarioRouter);
+//app.use('/rest/usuario', authenticateJWT, usuarioRouter);
+app.use('/rest/usuario', usuarioRouter);
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
