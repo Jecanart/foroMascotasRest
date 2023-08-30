@@ -22,5 +22,19 @@ router.get('/findAll/json', function(req, res, next) {
 
 });
 
+router.get('/findByIdU/:Usuario_idUsuario/json',function(req, res,next){
+  
+  let idU = req.params.Usuario_idUsuario;
+
+  usuario.findByPk(id)
+  .then(instancia => {if(instancia){
+    res.status(200).json(instancia);
+  }else{
+    res.status(404).json({error:"No existe registro con el id:"+idU})
+  }
+})
+.catch(error => res.status(400).send(error))
+});
+
 
 module.exports = router;
